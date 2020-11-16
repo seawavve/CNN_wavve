@@ -55,7 +55,7 @@ model.add(Conv2D(128, kernel_size=(3,3), strides=(1, 1), padding='same', activat
 model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
 model.add(Conv2D(256, kernel_size=(3,3), strides=(1, 1), padding='same', activation='relu'))
 model.add(MaxPooling2D(pool_size=(2, 2), strides=(2, 2)))
-#4
+#2
 model.add(Flatten())
 model.add(Dense(512, activation='relu'))
 model.add(Dense(512, activation='relu'))
