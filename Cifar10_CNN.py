@@ -1,5 +1,7 @@
-'Accuracy:78.1%
-Loss:1.62'
+'''
+Accuracy:78.1%
+Loss:1.62
+'''
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
