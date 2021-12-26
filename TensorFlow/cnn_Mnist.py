@@ -6,7 +6,9 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 import sys
+from keras.utils import np_utils
 import keras
+import tensorflow.keras as tk
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten,BatchNormalization
 from keras.layers.convolutional import Conv2D, MaxPooling2D
@@ -19,7 +21,7 @@ print('Keras version : ', keras.__version__)
 img_rows = 28
 img_cols = 28
 
-(x_train, y_train), (x_test, y_test) = keras.datasets.mnist.load_data()
+(x_train, y_train), (x_test, y_test) = tk.datasets.mnist.load_data()
 
 input_shape = (img_rows, img_cols, 1)
 x_train = x_train.reshape(x_train.shape[0], img_rows, img_cols, 1)
@@ -39,8 +41,8 @@ filename='checkpoint.h5'.format(epochs,batch_size)
 early_stopping=EarlyStopping(monitor='val_loss',mode='min',patience=15,verbose=1)                           #얼리스타핑
 checkpoint=ModelCheckpoint(filename,monitor='val_loss',verbose=1,save_best_only=True,mode='auto')           #체크포인트
 
-y_train = keras.utils.to_categorical(y_train, num_classes)
-y_test = keras.utils.to_categorical(y_test, num_classes)
+y_train = keras.utils.np_utils.to_categorical(y_train, num_classes)
+y_test = keras.utils.np_utils.to_categorical(y_test, num_classes)
 
 model = Sequential()
 #1
